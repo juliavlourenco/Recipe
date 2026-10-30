@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ReUse IA — Plataforma inteligente de reutilização de materiais. O que seria descartado pode ganhar uma nova oportunidade." />
+  <title>ReUse IA — Reutilização Inteligente de Materiais</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="container header-inner">
+      <a href="#inicio" class="logo" aria-label="ReUse IA - Início">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" width="36" height="36">
+            <path d="M20 4c-8.8 0-16 7.2-16 16s7.2 16 16 16 16-7.2 16-16S28.8 4 20 4z" fill="#E4F4E9"/>
+            <path d="M14 26l6-14 6 14h-3l-1.2-3h-3.6L17 26h-3zm4.8-5.4h2.4L20 17.2l-1.2 3.4z" fill="#174D36"/>
+            <path d="M27 12l3 3-3 3" stroke="#26965B" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span class="logo-text">ReUse<span class="logo-accent">IA</span></span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Menu principal">
+        <a href="#inicio" class="nav-link active">Início</a>
+        <a href="#identificar" class="nav-link">Identificar material</a>
+        <a href="#laboratorio" class="nav-link">Ideias de reutilização</a>
+        <a href="#doacoes" class="nav-link">Doações e trocas</a>
+        <a href="#impacto" class="nav-link">Impacto ambiental</a>
+        <a href="#sobre" class="nav-link">Sobre o projeto</a>
+      </nav>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="inicio" class="hero">
+      <div class="container hero-inner">
+        <div class="hero-content">
+          <span class="badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+            Tecnologia + Sustentabilidade
+          </span>
+          <h1 class="hero-title">
+            O que seria <span class="highlight">descartado</span> pode ganhar uma nova oportunidade.
+          </h1>
+          <p class="hero-subtitle">
+            A <strong>ReUse IA</strong> une inteligência artificial, educação ambiental e economia circular
+            para transformar resíduos em novos recursos — conectando pessoas que descartam com quem pode reaproveitar.
+          </p>
+          <div class="hero-actions">
+            <a href="#identificar" class="btn btn-primary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+              Identificar material
+            </a>
+            <a href="#laboratorio" class="btn btn-outline">
+              Explorar materiais
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <strong id="heroMaterials">0</strong>
+              <span>Materiais catalogados</span>
+            </div>
+            <div class="hero-stat">
+              <strong id="heroIdeas">0</strong>
+              <span>Ideias de reutilização</span>
+            </div>
+            <div class="hero-stat">
+              <strong id="heroUsers">0</strong>
+              <span>Participantes</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="visual-card visual-card-1">
+            <div class="visual-icon green">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-6.219-8.56"/><path d="M3.6 9h16.8M3.6 15h16.8"/></svg>
+            </div>
+            <div>
+              <strong>Economia circular</strong>
+              <span>Resíduo → Recurso</span>
+            </div>
+          </div>
+
+          <div class="visual-card visual-card-2">
+            <div class="visual-icon light">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            <div>
+              <strong>IA de identificação</strong>
+              <span>Análise de imagens</span>
+            </div>
+          </div>
+
+          <div class="visual-card visual-card-3">
+            <div class="visual-icon light">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div>
+              <strong>Comunidade</strong>
+              <span>Doações e trocas</span>
+            </div>
+          </div>
+
+          <div class="visual-orbit"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMO FUNCIONA -->
+    <section class="section how-section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Como funciona</span>
+          <h2>Da foto ao reaproveitamento em 4 passos</h2>
+          <p>Um fluxo simples e transparente para identificar, aprender e transformar.</p>
+        </div>
+
+        <div class="steps-grid">
+          <article class="step-card">
+            <span class="step-num">01</span>
+            <div class="step-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+            </div>
+            <h3>Envie uma foto</h3>
+            <p>Fotografe o material que deseja descartar ou reaproveitar.</p>
+          </article>
+
+          <article class="step-card">
+            <span class="step-num">02</span>
+            <div class="step-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            </div>
+            <h3>Identifique</h3>
+            <p>A IA (ou classificação manual) indica o provável tipo de material.</p>
+          </article>
+
+          <article class="step-card">
+            <span class="step-num">03</span>
+            <div class="step-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+            </div>
+            <h3>Descubra ideias</h3>
+            <p>Receba sugestões práticas de reutilização ou descarte correto.</p>
+          </article>
+
+          <article class="step-card">
+            <span class="step-num">04</span>
+            <div class="step-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3>Compartilhe</h3>
+            <p>Cadastre para doação ou troca e conecte-se com a comunidade.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- IDENTIFICADOR -->
+    <section id="identificar" class="section identifier-section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Identificador inteligente</span>
+          <h2>Identifique o material</h2>
+          <p>Envie uma imagem e receba uma classificação do material com orientações de reutilização e descarte.</p>
+          <div class="notice-banner" role="note">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+            <div>
+              <strong>Modo demonstração.</strong> A integração com IA de reconhecimento de imagens ainda não está configurada.
+              Você pode usar a <em>classificação manual</em> abaixo — a estrutura já está pronta para receber um backend seguro
+              (ex.: Firebase / Supabase + modelo de visão computacional).
+            </div>
+          </div>
+        </div>
+
+        <div class="identifier-grid">
+          <!-- Coluna de upload -->
+          <div class="upload-panel">
+            <div class="upload-dropzone" id="dropzone" tabindex="0" role="button" aria-label="Enviar imagem do material">
+              <input type="file" id="fileInput" accept="image/*" hidden />
+              <div class="dropzone-empty" id="dropzoneEmpty">
+                <div class="dropzone-icon">
+                  <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M17 8l-5-5-5 5M12 3v12"/></svg>
+                </div>
+                <p class="dropzone-title">Arraste uma foto aqui</p>
+                <p class="dropzone-sub">ou <span class="link">clique para selecionar</span></p>
+                <p class="dropzone-hint">JPG, PNG ou WEBP · até 8 MB</p>
+              </div>
+              <div class="dropzone-preview" id="dropzonePreview" hidden>
+                <img id="previewImg" alt="Pré-visualização da imagem enviada" />
+                <button class="btn-icon-remove" id="removeImg" type="button" aria-label="Remover imagem">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="manual-classify">
+              <label for="manualCategory" class="field-label">Classificação manual (obrigatória no modo demo)</label>
+              <select id="manualCategory" class="input">
+                <option value="">Selecione o tipo de material…</option>
+                <option value="plastico">Plástico</option>
+                <option value="papel">Papel e papelão</option>
+                <option value="vidro">Vidro</option>
+                <option value="metal">Metal</option>
+                <option value="tecido">Tecido</option>
+                <option value="madeira">Madeira</option>
+                <option value="organico">Resíduos orgânicos</option>
+                <option value="outros">Outros materiais</option>
+              </select>
+            </div>
+
+            <div class="upload-actions">
+              <button class="btn btn-primary btn-block" id="btnIdentify" type="button">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                Solicitar identificação
+              </button>
+              <p class="upload-feedback" id="uploadFeedback" role="status"></p>
+            </div>
+          </div>
+
+          <!-- Coluna de resultado -->
+          <div class="result-panel" id="resultPanel">
+            <div class="result-empty" id="resultEmpty">
+              <div class="result-empty-icon">
+                <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+              </div>
+              <h3>Nenhuma análise ainda</h3>
+              <p>Envie uma imagem e clique em “Solicitar identificação” para ver o resultado aqui.</p>
+            </div>
+
+            <div class="result-content" id="resultContent" hidden></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LABORATÓRIO -->
+    <section id="laboratorio" class="section lab-section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Laboratório ReUse</span>
+          <h2>Ideias de reutilização</h2>
+          <p>Transforme materiais descartados em novos objetos úteis. Filtre por categoria e dificuldade.</p>
+        </div>
+
+        <div class="filters-bar">
+          <div class="filter-group">
+            <label for="filterCategory" class="field-label">Categoria</label>
+            <select id="filterCategory" class="input input-sm">
+              <option value="all">Todas</option>
+              <option value="plastico">Plástico</option>
+              <option value="papel">Papel e papelão</option>
+              <option value="vidro">Vidro</option>
+              <option value="metal">Metal</option>
+              <option value="tecido">Tecido</option>
+              <option value="madeira">Madeira</option>
+              <option value="organico">Orgânicos</option>
+              <option value="outros">Outros</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="filterDifficulty" class="field-label">Dificuldade</label>
+            <select id="filterDifficulty" class="input input-sm">
+              <option value="all">Todas</option>
+              <option value="facil">Fácil</option>
+              <option value="medio">Médio</option>
+              <option value="dificil">Difícil</option>
+            </select>
+          </div>
+          <div class="filter-group filter-search">
+            <label for="searchIdeas" class="field-label">Buscar</label>
+            <input type="search" id="searchIdeas" class="input input-sm" placeholder="Ex.: vaso, organizador…" />
+          </div>
+        </div>
+
+        <div class="ideas-grid" id="ideasGrid" aria-live="polite"></div>
+        <p class="empty-state" id="ideasEmpty" hidden>Nenhuma ideia encontrada com esses filtros.</p>
+
+        <div class="lab-add">
+          <h3>Compartilhe sua ideia</h3>
+          <p>Cadastre uma ideia de reutilização para inspirar outras pessoas.</p>
+          <button class="btn btn-outline" id="btnAddIdea" type="button">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+            Cadastrar ideia
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- DOAÇÕES -->
+    <section id="doacoes" class="section donations-section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Central de doações e trocas</span>
+          <h2>Conecte-se com quem pode reaproveitar</h2>
+          <p>Anuncie materiais disponíveis para doação ou troca. Dados pessoais não são exibidos publicamente.</p>
+        </div>
+
+        <div class="donations-toolbar">
+          <input type="search" id="searchDonations" class="input" placeholder="Pesquisar materiais…" />
+          <select id="filterDonationCategory" class="input">
+            <option value="all">Todas as categorias</option>
+            <option value="plastico">Plástico</option>
+            <option value="papel">Papel e papelão</option>
+            <option value="vidro">Vidro</option>
+            <option value="metal">Metal</option>
+            <option value="tecido">Tecido</option>
+            <option value="madeira">Madeira</option>
+            <option value="organico">Orgânicos</option>
+            <option value="outros">Outros</option>
+          </select>
+          <button class="btn btn-primary" id="btnNewDonation" type="button">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+            Cadastrar anúncio
+          </button>
+        </div>
+
+        <div class="donations-grid" id="donationsGrid" aria-live="polite"></div>
+        <p class="empty-state" id="donationsEmpty" hidden>Nenhum anúncio encontrado.</p>
+
+        <div class="safety-note">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span>Por segurança, não publicamos endereços residenciais, telefones ou dados pessoais. Os encontros e combinações são de responsabilidade dos participantes, em locais públicos e seguros.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- IMPACTO -->
+    <section id="impacto" class="section impact-section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Painel de impacto ambiental</span>
+          <h2>Indicadores da plataforma</h2>
+          <p>Os números abaixo são calculados a partir dos registros locais desta demonstração. Itens marcados como <strong>“demo”</strong> representam dados ilustrativos.</p>
+        </div>
+
+        <div class="kpi-grid">
+          <article class="kpi-card">
+            <span class="kpi-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></span>
+            <div class="kpi-value" id="kpiMaterials">0</div>
+            <div class="kpi-label">Materiais cadastrados</div>
+            <span class="kpi-tag demo">demo + reais</span>
+          </article>
+          <article class="kpi-card">
+            <span class="kpi-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-6.219-8.56"/><path d="M3.6 9h16.8M3.6 15h16.8"/></svg></span>
+            <div class="kpi-value" id="kpiReused">0</div>
+            <div class="kpi-label">Materiais reaproveitados</div>
+            <span class="kpi-tag real">registros reais</span>
+          </article>
+          <article class="kpi-card">
+            <span class="kpi-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></span>
+            <div class="kpi-value" id="kpiDonations">0</div>
+            <div class="kpi-label">Doações realizadas</div>
+            <span class="kpi-tag real">registros reais</span>
+          </article>
+          <article class="kpi-card">
+            <span class="kpi-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+            <div class="kpi-value" id="kpiUsers">0</div>
+            <div class="kpi-label">Usuários participantes</div>
+            <span class="kpi-tag demo">demo</span>
+          </article>
+        </div>
+
+        <div class="charts-grid">
+          <div class="chart-card">
+            <h3>Materiais por categoria</h3>
+            <div class="bar-chart" id="barChart"></div>
+            <p class="chart-note">Baseado nos anúncios cadastrados nesta sessão.</p>
+          </div>
+          <div class="chart-card">
+            <h3>Doações x Trocas</h3>
+            <div class="donut-wrap">
+              <svg class="donut" viewBox="0 0 42 42" aria-hidden="true">
+                <circle class="donut-ring" cx="21" cy="21" r="15.9155" fill="transparent" stroke="#E4F4E9" stroke-width="6"/>
+                <circle class="donut-seg donut-donation" cx="21" cy="21" r="15.9155" fill="transparent" stroke="#26965B" stroke-width="6" stroke-dasharray="0 100" stroke-dashoffset="25"/>
+                <circle class="donut-seg donut-trade" cx="21" cy="21" r="15.9155" fill="transparent" stroke="#174D36" stroke-width="6" stroke-dasharray="0 100" stroke-dashoffset="25"/>
+              </svg>
+              <div class="donut-legend">
+                <div><span class="legend-dot green"></span> Doações <strong id="legendDonation">0</strong></div>
+                <div><span class="legend-dot dark"></span> Trocas <strong id="legendTrade">0</strong></div>
+              </div>
+            </div>
+            <p class="chart-note">Distribuição dos anúncios cadastrados.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DESAFIO -->
+    <section id="desafio" class="section challenge-section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Desafio ReUse</span>
+          <h2>Desafios sustentáveis</h2>
+          <p>Participe, registre suas atividades e acompanhe seu progresso com pontos e conquistas educativas.</p>
+        </div>
+
+        <div class="challenge-progress">
+          <div class="progress-head">
+            <div>
+              <span class="eyebrow">Seu progresso</span>
+              <h3><span id="userPoints">0</span> pontos</h3>
+            </div>
+            <div class="level-badge" id="levelBadge">Nível 1 · Iniciante</div>
+          </div>
+          <div class="progress-bar" aria-hidden="true"><div class="progress-fill" id="progressFill"></div></div>
+          <div class="achievements" id="achievements"></div>
+        </div>
+
+        <div class="challenges-grid" id="challengesGrid"></div>
+      </div>
+    </section>
+
+    <!-- EDUCATIVA -->
+    <section id="educativa" class="section education-section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Área educativa</span>
+          <h2>Aprenda sobre economia circular</h2>
+          <p>Conteúdo introdutório sobre sustentabilidade, resíduos e consumo consciente.</p>
+        </div>
+
+        <div class="edu-grid">
+          <article class="edu-card">
+            <h3>O que é economia circular?</h3>
+            <p>Modelo que mantém materiais em uso pelo maior tempo possível, reduzindo extração, desperdício e descarte. Em vez de “extrair → usar → descartar”, circulamos recursos com reúso, reparo, remanufatura e reciclagem.</p>
+          </article>
+          <article class="edu-card">
+            <h3>Reutilização x reciclagem</h3>
+            <p><strong>Reutilizar</strong> é dar novo uso ao objeto sem transformá-lo industrialmente. <strong>Reciclar</strong> reprocessa o material. Reutilizar costuma economizar mais energia e recursos.</p>
+          </article>
+          <article class="edu-card">
+            <h3>Como separar resíduos</h3>
+            <ul>
+              <li><strong>Recicláveis:</strong> papel, plástico, vidro, metal.</li>
+              <li><strong>Orgânicos:</strong> restos de alimentos e podas.</li>
+              <li><strong>Rejeitos:</strong> resíduos sem reaproveitamento.</li>
+              <li>Lave embalagens e reduza volume antes do descarte.</li>
+            </ul>
+          </article>
+          <article class="edu-card">
+            <h3>Importância da coleta seletiva</h3>
+            <p>A coleta seletiva evita que recicláveis cheguem a aterros, gera renda para cooperativas e reduz impactos ambientais e emissões.</p>
+          </article>
+          <article class="edu-card">
+            <h3>Consumo consciente</h3>
+            <p>Pergunte-se: preciso disso? Posso reparar? Posso emprestar ou trocar? Prefira produtos duráveis, com menos embalagem e de origem responsável.</p>
+          </article>
+          <article class="edu-card">
+            <h3>ODS da ONU</h3>
+            <p>A ReUse IA dialoga com os ODS 11 (Cidades Sustentáveis), 12 (Consumo e Produção Responsáveis) e 13 (Ação Contra a Mudança do Clima).</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section id="sobre" class="section about-section">
+      <div class="container about-inner">
+        <div>
+          <span class="eyebrow">Sobre o projeto</span>
+          <h2>ReUse IA</h2>
+          <p class="about-text">
+            ReUse IA é uma plataforma tecnológica de código aberto voltada à sustentabilidade, economia circular e redução do descarte inadequado.
+            O projeto une <strong>inteligência artificial</strong>, <strong>educação ambiental</strong> e <strong>impacto social</strong>, conectando pessoas que
+            possuem materiais sem utilidade com outras que podem reaproveitá-los.
+          </p>
+          <p class="about-text">
+            Esta versão é uma <strong>primeira versão funcional</strong>, publicável gratuitamente no GitHub Pages. As funcionalidades de IA,
+            banco de dados e autenticação estão preparadas para integração futura com backend seguro (Firebase / Supabase), sem expor chaves no cliente.
+          </p>
+
+          <div class="about-tech">
+            <span class="tech-tag">HTML5</span>
+            <span class="tech-tag">CSS3</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">Design Responsivo</span>
+            <span class="tech-tag">Pronto para IA</span>
+          </div>
+
+          <div class="about-cta">
+            <a href="#identificar" class="btn btn-primary">Começar agora</a>
+            <a href="#educativa" class="btn btn-outline">Explorar conteúdo educativo</a>
+          </div>
+        </div>
+
+        <aside class="about-card">
+          <div class="about-card-icon">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3>Pilares do projeto</h3>
+          <ul class="pillar-list">
+            <li><span>01</span> Inteligência artificial aplicada à triagem de resíduos</li>
+            <li><span>02</span> Educação ambiental acessível</li>
+            <li><span>03</span> Economia circular e impacto social</li>
+            <li><span>04</span> Tecnologia aberta e responsável</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="#inicio" class="logo">
+          <span class="logo-mark" aria-hidden="true">
+            <svg viewBox="0 0 40 40" width="32" height="32">
+              <path d="M20 4c-8.8 0-16 7.2-16 16s7.2 16 16 16 16-7.2 16-16S28.8 4 20 4z" fill="#E4F4E9"/>
+              <path d="M14 26l6-14 6 14h-3l-1.2-3h-3.6L17 26h-3zm4.8-5.4h2.4L20 17.2l-1.2 3.4z" fill="#174D36"/>
+            </svg>
+          </span>
+          <span class="logo-text">ReUse<span class="logo-accent">IA</span></span>
+        </a>
+        <p class="footer-slogan">O que seria descartado pode ganhar uma nova oportunidade.</p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Navegar</h4>
+        <a href="#identificar">Identificar material</a>
+        <a href="#laboratorio">Ideias de reutilização</a>
+        <a href="#doacoes">Doações e trocas</a>
+        <a href="#impacto">Impacto ambiental</a>
+      </div>
+
+      <div class="footer-links">
+        <h4>Projeto</h4>
+        <a href="#sobre">Sobre</a>
+        <a href="#educativa">Área educativa</a>
+        <a href="#desafio">Desafio ReUse</a>
+        <a href="README.md">README</a>
+      </div>
+
+      <div class="footer-info">
+        <h4>Transparência</h4>
+        <p>Versão demonstrativa. Dados marcados como “demo” são ilustrativos. Nenhuma chave de API está exposta no cliente.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <span>© <span id="year"></span> ReUse IA — Projeto de inovação científica e tecnológica.</span>
+        <span class="footer-badge">Sustentabilidade · IA · Economia Circular</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAIS -->
+  <div class="modal" id="modal" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" aria-label="Fechar" data-close>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+      <h3 class="modal-title" id="modalTitle">Título</h3>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
