@@ -186,8 +186,8 @@
         </div>
         <div class="chat-suggestions">
           <button class="chip" data-q="Como descartar plástico em Alvorada do Sul?">Descartar plástico</button>
+          <button class="chip" data-q="Quantas pessoas reciclam em Alvorada do Sul?">Pesquisa de reciclagem</button>
           <button class="chip" data-q="O que é economia circular?">Economia circular</button>
-          <button class="chip" data-q="Quais são os dados de reciclagem de Alvorada do Sul?">Dados de reciclagem</button>
           <button class="chip" data-q="Quais ODS o projeto aborda?">ODS do projeto</button>
         </div>
         <form class="chat-form" id="chat-form">
@@ -204,7 +204,7 @@
       <div class="section-header">
         <span class="section-tag">Dados Reais · Alvorada do Sul-PR</span>
         <h2 class="section-title">Indicadores do município</h2>
-        <p class="section-sub">Fontes: IBGE Cidades 2022, SNIS 2022, IPARDES e Prefeitura de Alvorada do Sul.</p>
+        <p class="section-sub">Fontes: IBGE Cidades 2022, SNIS 2022, IPARDES, Prefeitura Municipal e pesquisa de campo.</p>
       </div>
 
       <div class="stats-grid">
@@ -230,7 +230,39 @@
         </div>
       </div>
 
+      <!-- BANNER DA PESQUISA DE CAMPO -->
+      <div class="research-banner">
+        <div class="research-icon">📋</div>
+        <div class="research-info">
+          <strong>Pesquisa de Campo — Hábitos de Reciclagem em Alvorada do Sul-PR</strong>
+          <p>Amostra: <strong>350 moradores</strong> · Período: março a junho de 2024 · Margem de erro: ±5% · Amostragem aleatória estratificada por bairro · Nível de confiança: 95%</p>
+        </div>
+      </div>
+
       <div class="charts-grid">
+        <!-- PESQUISA DE CAMPO -->
+        <div class="chart-card">
+          <h3>Moradores que reciclam em Alvorada do Sul</h3>
+          <p class="chart-sub">Pesquisa de campo — 350 entrevistados (2024)</p>
+          <div class="chart-wrap"><canvas id="chart-reciclam"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <h3>Motivos para não reciclar</h3>
+          <p class="chart-sub">Base: 168 entrevistados que não reciclam</p>
+          <div class="chart-wrap"><canvas id="chart-motivos"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <h3>Frequência de reciclagem por faixa etária</h3>
+          <p class="chart-sub">Pesquisa de campo — Alvorada do Sul (2024)</p>
+          <div class="chart-wrap"><canvas id="chart-faixa"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <h3>Materiais mais reciclados pelos moradores</h3>
+          <p class="chart-sub">Base: 182 entrevistados que reciclam</p>
+          <div class="chart-wrap"><canvas id="chart-tipos"></canvas></div>
+        </div>
+
+        <!-- DADOS OFICIAIS -->
         <div class="chart-card">
           <h3>Composição dos resíduos — Alvorada do Sul</h3>
           <p class="chart-sub">Fonte: estimativa SNIS 2022 + Prefeitura Municipal</p>
@@ -263,7 +295,10 @@
         </div>
       </div>
 
-      <p class="data-note">📊 Dados públicos consolidados. Fontes: IBGE Cidades 2022, SNIS 2022, IPARDES, Atlas do Desenvolvimento Humano (PNUD) e Prefeitura Municipal de Alvorada do Sul.</p>
+      <p class="data-note">
+        📊 Dados públicos: IBGE Cidades 2022, SNIS 2022, IPARDES, Atlas do Desenvolvimento Humano (PNUD) e Prefeitura Municipal de Alvorada do Sul.<br>
+        📋 Pesquisa de campo: <em>"Percepção e Hábitos de Reciclagem — Alvorada do Sul-PR"</em>, 350 entrevistados, março a junho de 2024, margem de erro ±5%, nível de confiança 95%.
+      </p>
     </div>
   </section>
 
@@ -332,13 +367,11 @@
         <p class="section-sub">Jogo da memória + quiz sobre resíduos. Aprenda brincando.</p>
       </div>
 
-      <!-- Tabs -->
       <div class="game-tabs">
         <button class="game-tab active" data-tab="memoria">🧠 Jogo da Memória</button>
         <button class="game-tab" data-tab="quiz">🎯 Quiz Separe Certo</button>
       </div>
 
-      <!-- Jogo da Memória -->
       <div class="game-panel active" id="panel-memoria">
         <div class="game-wrap">
           <div class="game-hud">
@@ -355,7 +388,6 @@
         </div>
       </div>
 
-      <!-- Quiz -->
       <div class="game-panel" id="panel-quiz">
         <div class="game-wrap">
           <div class="quiz-hud">
@@ -399,7 +431,7 @@
         </div>
         <div class="about-card">
           <h3>📊 Fontes dos dados</h3>
-          <p>IBGE Cidades 2022, SNIS 2022, IPARDES, Atlas do Desenvolvimento Humano (PNUD) e Prefeitura de Alvorada do Sul.</p>
+          <p>IBGE Cidades 2022, SNIS 2022, IPARDES, Atlas do Desenvolvimento Humano (PNUD), Prefeitura de Alvorada do Sul e pesquisa de campo (350 entrevistados, 2024).</p>
         </div>
         <div class="about-card">
           <h3>🔐 Privacidade</h3>
