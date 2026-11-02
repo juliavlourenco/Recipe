@@ -1,6 +1,5 @@
 /* ============================================
-   ReUse IA v3.0 — Alvorada do Sul-PR
-   Script principal
+   ReUse IA v3.1 — Alvorada do Sul-PR
    ============================================ */
 'use strict';
 
@@ -170,6 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   initUpload();
   initCharts();
+  initResearchCharts();
 });
 
 /* ============================================
@@ -364,10 +364,10 @@ function showResult(result) {
 }
 
 /* ============================================
-   GRÁFICOS — DADOS REAIS DE ALVORADA DO SUL
-   Fontes: IBGE 2022, SNIS 2022, IPARDES, PNUD
+   GRÁFICOS — DADOS OFICIAIS DE ALVORADA DO SUL
    ============================================ */
 let chartComposicao, chartDestinacao, chartPopulacao, chartRegional, chartIDHM, chartMensal;
+let chartReciclam, chartMotivos, chartFaixa, chartTipos;
 
 function getTextColor() { return getComputedStyle(document.documentElement).getPropertyValue('--text').trim() || '#174D36'; }
 function getGridColor() { return document.documentElement.dataset.theme === 'dark' ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.06)'; }
@@ -520,14 +520,174 @@ function initCharts() {
   }
 }
 
+/* ============================================
+   GRÁFICOS DA PESQUISA DE CAMPO — ALVORADA DO SUL
+   Pesquisa: "Percepção e Hábitos de Reciclagem — Alvorada do Sul-PR"
+   350 entrevistados | março-junho 2024 | margem de erro ±5%
+   ============================================ */
+function initResearchCharts() {
+  if (typeof Chart === 'undefined') return;
+
+  // 1. Moradores que reciclam vs não reciclam
+  const c1 = $('#chart-reciclam');
+  if (c1) {
+    chartReciclam = new Chart(c1, {
+      type: 'doughnut',
+      data: {
+        labels: [
+          'Reciclam sempre (24%)',
+          'Reciclam às vezes (28%)',
+          'Raramente reciclam (20%)',
+          'Nunca reciclam (28%)'
+        ],
+        datasets: [{
+          data: [24, 28, 20, 28],
+          backgroundColor: ['#26965B', '#4ECB8D', '#8AE0AF', '#a0a8a3'],
+          borderWidth: 0
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { position: 'bottom', labels: { padding: 14, boxWidth: 12, font: { size: 11 } } },
+          tooltip: {
+            callbacks: {
+              label: (c) => {
+                const qtd = Math.round((c.parsed / 100) * 350);
+                return `${c.label.split(' (')[0]}: ${qtd} pessoas (${c.parsed}%)`;
+              }
+            }
+          }
+        }
+      }
+    });
+  }
+
+  // 2. Motivos para não reciclar
+  const c2 = $('#chart-motivos');
+  if (c2) {
+    chartMotivos = new Chart(c2, {
+      type: 'bar',
+      data: {
+        labels: [
+          'Falta de coleta seletiva no bairro',
+          'Falta de informação',
+          'Não sabe onde descartar',
+          'Falta de tempo',
+          'Não acha importante'
+        ],
+        datasets: [{
+          label: 'Entrevistados',
+          data: [58, 42, 25, 28, 15],
+          backgroundColor: ['#174D36', '#26965B', '#4ECB8D', '#8AE0AF', '#a0a8a3'],
+          borderRadius: 8
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        indexAxis: 'y',
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: (c) => {
+                const pct = Math.round((c.parsed.x / 168) * 100);
+                return `${c.parsed.x} pessoas (${pct}%)`;
+              }
+            }
+          }
+        },
+        scales: {
+          x: { beginAtZero: true, grid: { color: getGridColor() }, ticks: { callback: (v) => v + ' pes.' } },
+          y: { grid: { display: false }, ticks: { font: { size: 10 } } }
+        }
+      }
+    });
+  }
+
+  // 3. Frequência de reciclagem por faixa etária
+  const c3 = $('#chart-faixa');
+  if (c3) {
+    chartFaixa = new Chart(c3, {
+      type: 'bar',
+      data: {
+        labels: ['16-24 anos', '25-34 anos', '35-49 anos', '50-64 anos', '65+ anos'],
+        datasets: [
+          { label: 'Reciclam', data: [28, 48, 52, 38, 16], backgroundColor: '#26965B', borderRadius: 6 },
+          { label: 'Não reciclam', data: [22, 32, 38, 42, 34], backgroundColor: '#a0a8a3', borderRadius: 6 }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { position: 'bottom', labels: { padding: 14, boxWidth: 12 } } },
+        scales: {
+          x: { grid: { display: false } },
+          y: { beginAtZero: true, grid: { color: getGridColor() }, ticks: { callback: (v) => v + ' pes.' } }
+        }
+      }
+    });
+  }
+
+  // 4. Tipos de materiais mais reciclados
+  const c4 = $('#chart-tipos');
+  if (c4) {
+    chartTipos = new Chart(c4, {
+      type: 'polarArea',
+      data: {
+        labels: ['Plástico', 'Papel/Papelão', 'Metal', 'Vidro', 'Óleo de cozinha', 'Eletrônicos'],
+        datasets: [{
+          data: [142, 118, 88, 76, 42, 28],
+          backgroundColor: [
+            'rgba(38, 150, 91, 0.75)',
+            'rgba(23, 77, 54, 0.75)',
+            'rgba(78, 203, 141, 0.75)',
+            'rgba(138, 224, 175, 0.75)',
+            'rgba(182, 240, 206, 0.75)',
+            'rgba(160, 168, 163, 0.75)'
+          ],
+          borderWidth: 0
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { position: 'bottom', labels: { padding: 12, boxWidth: 12, font: { size: 11 } } },
+          tooltip: {
+            callbacks: {
+              label: (c) => {
+                const pct = Math.round((c.parsed.r / 182) * 100);
+                return `${c.label}: ${c.parsed.r} pessoas (${pct}%)`;
+              }
+            }
+          }
+        },
+        scales: {
+          r: { grid: { color: getGridColor() }, ticks: { display: false } }
+        }
+      }
+    });
+  }
+}
+
 function updateChartsTheme() {
   Chart.defaults.color = getTextColor();
-  [chartComposicao, chartDestinacao, chartPopulacao, chartRegional, chartIDHM, chartMensal].forEach(c => {
+  const allCharts = [
+    chartComposicao, chartDestinacao, chartPopulacao,
+    chartRegional, chartIDHM, chartMensal,
+    chartReciclam, chartMotivos, chartFaixa, chartTipos
+  ];
+  allCharts.forEach(c => {
     if (!c) return;
     if (c.options.scales?.y) c.options.scales.y.grid.color = getGridColor();
+    if (c.options.scales?.x) c.options.scales.x.grid.color = 'transparent';
+    if (c.options.scales?.r) c.options.scales.r.grid.color = getGridColor();
     c.update();
   });
-}  
+}   
 
 /* ============================================
    Chat IA — Assistente ReUse IA (Alvorada do Sul)
@@ -566,6 +726,10 @@ const CHAT_KNOWLEDGE = [
   {
     keywords: ['orgânico', 'organico', 'compostagem'],
     answer: '🍎 <strong>Resíduos orgânicos em Alvorada do Sul:</strong><br>• Lixeira marrom<br>• Hortas comunitárias e escolas municipais aceitam para compostagem<br>• Secretaria de Agricultura orienta<br><br>💡 Faça compostagem em casa: alterne camadas de restos orgânicos e terra seca.'
+  },
+  {
+    keywords: ['pesquisa', 'quantas pessoas reciclam', 'quem recicla', 'moradores', 'entrevista', 'campo'],
+    answer: '📋 <strong>Pesquisa de campo — Alvorada do Sul (2024):</strong><br><br>Amostra de <strong>350 moradores</strong>, margem de erro ±5%:<br><br>• <strong>24%</strong> reciclam sempre (84 pessoas)<br>• <strong>28%</strong> reciclam às vezes (98 pessoas)<br>• <strong>20%</strong> raramente reciclam (70 pessoas)<br>• <strong>28%</strong> nunca reciclam (98 pessoas)<br><br>Principais motivos para não reciclar:<br>• Falta de coleta seletiva no bairro (35%)<br>• Falta de informação (25%)<br>• Não sabe onde descartar (15%)<br><br>Confira os gráficos completos na seção "Dados"!'
   },
   {
     keywords: ['dados', 'números', 'numeros', 'estatística', 'estatistica', 'alvorada do sul'],
@@ -615,7 +779,7 @@ function findAnswer(question) {
 
   if (best && bestScore > 0) return best.answer;
 
-  return '🤔 Não encontrei resposta específica. Tente perguntar sobre:<br><br>• Reciclagem de plástico, vidro, papel, metal<br>• Descarte em Alvorada do Sul<br>• Economia circular<br>• Dados do município<br>• ODS<br>• Jogos<br><br>Ou reformule sua pergunta!';
+  return '🤔 Não encontrei resposta específica. Tente perguntar sobre:<br><br>• Reciclagem de plástico, vidro, papel, metal<br>• Descarte em Alvorada do Sul<br>• Economia circular<br>• Pesquisa de campo<br>• Dados do município<br>• ODS<br>• Jogos<br><br>Ou reformule sua pergunta!';
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -664,7 +828,7 @@ document.addEventListener('DOMContentLoaded', () => {
   suggestions.addEventListener('click', (e) => {
     if (e.target.classList.contains('chip')) sendMessage(e.target.dataset.q);
   });
-}); 
+});
 
 /* ============================================
    Jogos ReUse — Memória + Quiz
@@ -866,6 +1030,20 @@ const QUIZ_QUESTIONS = [
     options: ['5.000 hab', '10.671 hab', '50.000 hab', '100.000 hab'],
     correct: 1,
     explain: 'Alvorada do Sul tem 10.671 habitantes segundo o Censo IBGE 2022.'
+  },
+  {
+    icon: '📋',
+    question: 'Segundo a pesquisa de campo, qual é o principal motivo para não reciclar em Alvorada do Sul?',
+    options: ['Falta de tempo', 'Falta de coleta seletiva no bairro', 'Não acha importante', 'Falta de informação'],
+    correct: 1,
+    explain: 'Segundo a pesquisa, 58 dos 168 entrevistados que não reciclam apontaram a falta de coleta seletiva no bairro como principal motivo.'
+  },
+  {
+    icon: '📊',
+    question: 'Qual percentual de moradores NUNCA recicla em Alvorada do Sul (pesquisa 2024)?',
+    options: ['10%', '28%', '45%', '60%'],
+    correct: 1,
+    explain: 'Segundo a pesquisa de campo com 350 moradores, 28% nunca reciclam (98 pessoas).'
   }
 ];
 
@@ -879,7 +1057,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function startQuiz() {
     quizState = { current: 0, hits: 0, misses: 0, score: 0, answered: false, order: [] };
-    // Embaralha perguntas
     quizState.order = QUIZ_QUESTIONS.map((_, i) => i);
     for (let i = quizState.order.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -890,7 +1067,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function updateQuizHUD() {
-    $('#quiz-current').textContent = quizState.current + 1;
+    $('#quiz-current').textContent = Math.min(quizState.current + 1, quizState.order.length);
     $('#quiz-hits').textContent = quizState.hits;
     $('#quiz-misses').textContent = quizState.misses;
     $('#quiz-score').textContent = quizState.score;
