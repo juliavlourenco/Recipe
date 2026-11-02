@@ -3,48 +3,48 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="ReUse IA - Plataforma inteligente de reutilização de materiais. O que seria descartado pode ganhar uma nova oportunidade." />
+  <meta name="description" content="ReUse IA - Plataforma inteligente de reutilização de materiais com IA real." />
   <title>ReUse IA — O que seria descartado pode ganhar uma nova oportunidade</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.min.css" />
+  <!-- TensorFlow.js + MobileNet para identificação real de imagens -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.20.0/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet@2.1.1/dist/mobilenet.min.js"></script>
+  <!-- Chart.js para gráficos -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 </head>
 <body>
 
-  <!-- Barra de acessibilidade -->
-  <div class="a11y-bar" role="region" aria-label="Barra de acessibilidade">
+  <!-- A11Y BAR -->
+  <div class="a11y-bar">
     <div class="container a11y-content">
       <span class="a11y-label">Acessibilidade:</span>
-      <button id="btn-font-plus" class="a11y-btn" title="Aumentar letras" aria-label="Aumentar letras">A+</button>
-      <button id="btn-font-minus" class="a11y-btn" title="Diminuir letras" aria-label="Diminuir letras">A−</button>
-      <button id="btn-contrast" class="a11y-btn" title="Alto contraste" aria-label="Alternar alto contraste">◐ Contraste</button>
-      <button id="btn-theme" class="a11y-btn" title="Modo escuro/claro" aria-label="Alternar tema">🌙 Tema</button>
+      <button id="btn-font-plus" class="a11y-btn" title="Aumentar letras">A+</button>
+      <button id="btn-font-minus" class="a11y-btn" title="Diminuir letras">A−</button>
+      <button id="btn-contrast" class="a11y-btn" title="Alto contraste">◐ Contraste</button>
+      <button id="btn-theme" class="a11y-btn" title="Modo escuro/claro">🌙 Tema</button>
     </div>
   </div>
 
-  <!-- Header -->
-  <header class="header" id="header">
+  <!-- HEADER -->
+  <header class="header">
     <div class="container header-content">
-      <a href="#inicio" class="logo" aria-label="ReUse IA - Início">
+      <a href="#inicio" class="logo">
         <div class="logo-icon">♻</div>
         <div class="logo-text">
           <span class="logo-title">ReUse <span class="accent">IA</span></span>
           <span class="logo-sub">Sustentabilidade Inteligente</span>
         </div>
       </a>
-
-      <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
+      <button class="menu-toggle" id="menu-toggle" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
-
-      <nav class="nav" id="nav" aria-label="Menu principal">
+      <nav class="nav" id="nav">
         <a href="#inicio" class="nav-link">Início</a>
         <a href="#identificar" class="nav-link">Identificar</a>
-        <a href="#laboratorio" class="nav-link">Ideias</a>
-        <a href="#doacoes" class="nav-link">Doações</a>
+        <a href="#chat-ia" class="nav-link">Chat IA</a>
         <a href="#impacto" class="nav-link">Impacto</a>
-        <a href="#ods" class="nav-link">ODS</a>
-        <a href="#jogo" class="nav-link">Jogo</a>
+        <a href="#memoria" class="nav-link">Jogo</a>
         <a href="#sobre" class="nav-link">Sobre</a>
       </nav>
     </div>
@@ -53,118 +53,85 @@
   <!-- HERO -->
   <section class="hero" id="inicio">
     <div class="container hero-grid">
-      <div class="hero-content">
-        <span class="badge">🌱 Tecnologia + Sustentabilidade</span>
+      <div>
+        <span class="badge">🌱 IA + Sustentabilidade em Londrina-PR</span>
         <h1 class="hero-title">
           O que seria <span class="accent">descartado</span><br />
           pode ganhar uma <span class="accent">nova oportunidade</span>.
         </h1>
         <p class="hero-desc">
-          A <strong>ReUse IA</strong> une inteligência artificial, economia circular e impacto social
-          para transformar resíduos em possibilidades. Envie uma foto, descubra o material
-          e receba sugestões inteligentes de reutilização.
+          Envie uma foto e nossa <strong>IA real identifica o material</strong> automaticamente.
+          Converse com o assistente, jogue, aprenda e descubra o impacto da reciclagem em Londrina.
         </p>
         <div class="hero-actions">
-          <a href="#identificar" class="btn btn-primary">📷 Identificar material</a>
-          <a href="#laboratorio" class="btn btn-outline">🔎 Explorar materiais</a>
+          <a href="#identificar" class="btn btn-primary">📷 Identificar com IA</a>
+          <a href="#chat-ia" class="btn btn-outline">💬 Conversar com IA</a>
         </div>
-        <div class="visitor-badge" id="visitor-badge">
+        <div class="visitor-badge">
           <span class="pulse"></span>
-          <span id="visitor-text">Bem-vindo(a)! Você é o visitante nº <strong id="visitor-count">—</strong></span>
+          <span>Bem-vindo(a)! Você é o visitante nº <strong id="visitor-count">—</strong></span>
         </div>
       </div>
       <div class="hero-visual">
         <div class="hero-card">
           <div class="hero-card-icon">🤖</div>
-          <h3>IA de Identificação</h3>
-          <p>Envie uma foto e receba o material identificado automaticamente.</p>
+          <h3>IA Real</h3>
+          <p>TensorFlow.js identifica o material da foto no seu navegador.</p>
         </div>
         <div class="hero-card hero-card-2">
-          <div class="hero-card-icon">♻️</div>
-          <h3>Economia Circular</h3>
-          <p>Reduza o descarte e gere valor com o que seria lixo.</p>
+          <div class="hero-card-icon">💬</div>
+          <h3>Chat Inteligente</h3>
+          <p>Tire dúvidas sobre o projeto e sustentabilidade.</p>
         </div>
         <div class="hero-card hero-card-3">
-          <div class="hero-card-icon">🌍</div>
-          <h3>Impacto Real</h3>
-          <p>Acompanhe métricas de reutilização e doações.</p>
+          <div class="hero-card-icon">🎮</div>
+          <h3>Jogo da Memória</h3>
+          <p>Aprenda brincando com o jogo educativo.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- COMO FUNCIONA -->
-  <section class="section" id="como-funciona">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Como funciona</span>
-        <h2 class="section-title">Três passos para transformar resíduos</h2>
-        <p class="section-sub">Do envio da foto à nova oportunidade de reutilização.</p>
-      </div>
-      <div class="steps-grid">
-        <div class="step-card">
-          <div class="step-num">01</div>
-          <div class="step-icon">📤</div>
-          <h3>Envie uma foto</h3>
-          <p>Basta tirar uma foto do material que deseja descartar corretamente.</p>
-        </div>
-        <div class="step-card">
-          <div class="step-num">02</div>
-          <div class="step-icon">🧠</div>
-          <h3>IA identifica</h3>
-          <p>Nosso sistema analisa a imagem e retorna o tipo provável do material.</p>
-        </div>
-        <div class="step-card">
-          <div class="step-num">03</div>
-          <div class="step-icon">🌱</div>
-          <h3>Receba ideias</h3>
-          <p>Descubra como reutilizar, doar ou descartar corretamente.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- IDENTIFICADOR -->
+  <!-- IDENTIFICADOR IA REAL -->
   <section class="section section-alt" id="identificar">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">Identificador Inteligente</span>
-        <h2 class="section-title">Envie uma foto, receba a identificação</h2>
-        <p class="section-sub">A IA analisa automaticamente ao enviar a imagem. Sem cliques extras.</p>
+        <span class="section-tag">Identificador com IA Real</span>
+        <h2 class="section-title">Envie uma foto — a IA identifica automaticamente</h2>
+        <p class="section-sub">Utilizamos TensorFlow.js + MobileNet rodando no seu navegador. Sem envio de imagens para servidores.</p>
       </div>
 
       <div class="identify-grid">
         <div class="identify-upload">
-          <div class="upload-zone" id="upload-zone" role="button" tabindex="0" aria-label="Enviar foto do material">
+          <div class="upload-zone" id="upload-zone" role="button" tabindex="0">
             <input type="file" id="file-input" accept="image/*" hidden />
             <div class="upload-empty" id="upload-empty">
               <div class="upload-icon">📷</div>
-              <h3>Arraste uma foto ou clique para enviar</h3>
-              <p>Formatos: JPG, PNG, WEBP — até 5 MB</p>
+              <h3>Clique ou arraste uma foto</h3>
+              <p>A IA analisa automaticamente ao enviar</p>
             </div>
             <div class="upload-preview" id="upload-preview" hidden>
-              <img id="preview-img" alt="Pré-visualização do material" />
+              <img id="preview-img" alt="Prévia" />
               <button class="btn-change" id="btn-change" type="button">Trocar imagem</button>
             </div>
           </div>
-          <div class="upload-actions">
-            <button class="btn btn-primary" id="btn-identify" disabled>🔍 Identificar material</button>
-            <button class="btn btn-outline" id="btn-clear" disabled>Limpar</button>
+          <div class="ai-status" id="ai-status"></div>
+          <div class="ai-progress" id="ai-progress" hidden>
+            <div class="ai-progress-bar" id="ai-progress-bar"></div>
           </div>
-          <div class="ai-status" id="ai-status" aria-live="polite"></div>
         </div>
 
-        <div class="identify-result" id="identify-result">
+        <div class="identify-result">
           <div class="result-empty" id="result-empty">
             <div class="result-empty-icon">🔎</div>
-            <h3>Aguardando análise</h3>
-            <p>Envie uma foto para receber a identificação automática do material.</p>
+            <h3>Aguardando imagem</h3>
+            <p>Envie uma foto para a IA identificar o material.</p>
           </div>
           <div class="result-content" id="result-content" hidden>
             <div class="result-header">
               <div class="result-icon" id="result-icon">♻️</div>
               <div>
-                <span class="result-tag">Material identificado</span>
+                <span class="result-tag">Identificado pela IA</span>
                 <h3 id="result-name">—</h3>
               </div>
               <span class="result-confidence" id="result-confidence">—</span>
@@ -182,10 +149,14 @@
                 <h4>🗑️ Descarte correto</h4>
                 <p id="result-dispose">—</p>
               </div>
+              <div class="result-block">
+                <h4>🏙️ Onde descartar em Londrina</h4>
+                <p id="result-londrina">—</p>
+              </div>
             </div>
             <div class="result-actions">
               <button class="btn btn-primary" id="btn-save-material">💾 Salvar no impacto</button>
-              <button class="btn btn-outline" id="btn-new-identify">🔄 Nova identificação</button>
+              <button class="btn btn-outline" id="btn-new-identify">🔄 Nova foto</button>
             </div>
           </div>
         </div>
@@ -193,302 +164,153 @@
     </div>
   </section>
 
-  <!-- LABORATÓRIO -->
-  <section class="section" id="laboratorio">
+  <!-- CHAT IA -->
+  <section class="section" id="chat-ia">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">Laboratório ReUse</span>
-        <h2 class="section-title">Ideias de transformação de materiais</h2>
-        <p class="section-sub">Filtre por categoria e dificuldade. Clique em um card para ver o passo a passo.</p>
+        <span class="section-tag">Assistente IA</span>
+        <h2 class="section-title">Converse com a ReUse IA</h2>
+        <p class="section-sub">Tire dúvidas sobre o site, reciclagem, economia circular e Londrina.</p>
       </div>
 
-      <div class="filters">
-        <div class="filter-group">
-          <label for="filter-cat">Categoria:</label>
-          <select id="filter-cat">
-            <option value="all">Todas</option>
-            <option value="plastico">Plástico</option>
-            <option value="papel">Papel e papelão</option>
-            <option value="vidro">Vidro</option>
-            <option value="metal">Metal</option>
-            <option value="tecido">Tecido</option>
-            <option value="madeira">Madeira</option>
-          </select>
+      <div class="chat-wrap">
+        <div class="chat-header">
+          <div class="chat-avatar">🤖</div>
+          <div>
+            <strong>Assistente ReUse IA</strong>
+            <span class="chat-status">● Online</span>
+          </div>
         </div>
-        <div class="filter-group">
-          <label for="filter-diff">Dificuldade:</label>
-          <select id="filter-diff">
-            <option value="all">Todas</option>
-            <option value="facil">Fácil</option>
-            <option value="medio">Médio</option>
-            <option value="dificil">Difícil</option>
-          </select>
+        <div class="chat-messages" id="chat-messages">
+          <div class="chat-msg bot">
+            <div class="chat-bubble">Olá! 👋 Sou o assistente ReUse IA. Posso responder dúvidas sobre reciclagem, economia circular, o projeto e sobre descarte correto em Londrina. Como posso ajudar?</div>
+          </div>
         </div>
-        <div class="filter-group">
-          <label for="filter-search">Buscar:</label>
-          <input type="search" id="filter-search" placeholder="Ex.: vaso, luminária..." />
+        <div class="chat-suggestions" id="chat-suggestions">
+          <button class="chip" data-q="O que é economia circular?">O que é economia circular?</button>
+          <button class="chip" data-q="Como descartar plástico em Londrina?">Descarte de plástico em Londrina</button>
+          <button class="chip" data-q="Qual a diferença entre reutilizar e reciclar?">Reutilizar x reciclar</button>
+          <button class="chip" data-q="Quais ODS o projeto aborda?">Quais ODS o projeto aborda?</button>
         </div>
+        <form class="chat-form" id="chat-form">
+          <input type="text" id="chat-input" placeholder="Digite sua pergunta..." autocomplete="off" />
+          <button type="submit" class="btn btn-primary">➤</button>
+        </form>
       </div>
-
-      <div class="lab-grid" id="lab-grid"></div>
-      <p class="empty-msg" id="lab-empty" hidden>Nenhuma ideia encontrada com esses filtros.</p>
     </div>
   </section>
 
-  <!-- DOAÇÕES -->
-  <section class="section section-alt" id="doacoes">
+  <!-- IMPACTO COM DADOS REAIS DE LONDRINA -->
+  <section class="section section-alt" id="impacto">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">Central de Doações e Trocas</span>
-        <h2 class="section-title">Conectando quem tem com quem precisa</h2>
-        <p class="section-sub">Anuncie materiais sem utilidade e encontre quem pode aproveitá-los.</p>
-      </div>
-
-      <div class="donation-toolbar">
-        <input type="search" id="search-donations" placeholder="🔍 Buscar materiais..." aria-label="Buscar doações" />
-        <select id="filter-donation-cat" aria-label="Filtrar por categoria">
-          <option value="all">Todas as categorias</option>
-          <option value="plastico">Plástico</option>
-          <option value="papel">Papel e papelão</option>
-          <option value="vidro">Vidro</option>
-          <option value="metal">Metal</option>
-          <option value="tecido">Tecido</option>
-          <option value="madeira">Madeira</option>
-          <option value="outros">Outros</option>
-        </select>
-        <button class="btn btn-primary" id="btn-new-donation">➕ Cadastrar anúncio</button>
-      </div>
-
-      <div class="donation-grid" id="donation-grid"></div>
-      <p class="empty-msg" id="donation-empty" hidden>Nenhum anúncio encontrado.</p>
-    </div>
-  </section>
-
-  <!-- IMPACTO -->
-  <section class="section" id="impacto">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Painel de Impacto Ambiental</span>
-        <h2 class="section-title">Números que mostram a transformação</h2>
-        <p class="section-sub">Indicadores calculados a partir dos registros reais desta sessão (dados demonstrativos marcados).</p>
+        <span class="section-tag">Impacto em Londrina-PR</span>
+        <h2 class="section-title">Dados reais de reciclagem em Londrina</h2>
+        <p class="section-sub">Fontes: SNIS (Sistema Nacional de Informações sobre Saneamento), ABRELPE, Prefeitura de Londrina e CEMPRE — dados públicos de 2022/2023.</p>
       </div>
 
       <div class="stats-grid">
         <div class="stat-card">
-          <div class="stat-icon">📦</div>
-          <div class="stat-value" id="stat-materials">0</div>
-          <div class="stat-label">Materiais cadastrados</div>
+          <div class="stat-icon">🏙️</div>
+          <div class="stat-value">~555 mil</div>
+          <div class="stat-label">Habitantes de Londrina (IBGE 2022)</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">🗑️</div>
+          <div class="stat-value">~1,1 kg</div>
+          <div class="stat-label">Resíduos gerados por dia por pessoa</div>
         </div>
         <div class="stat-card">
           <div class="stat-icon">♻️</div>
-          <div class="stat-value" id="stat-reused">0</div>
-          <div class="stat-label">Materiais reaproveitados</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-icon">🤝</div>
-          <div class="stat-value" id="stat-donations">0</div>
-          <div class="stat-label">Doações realizadas</div>
+          <div class="stat-value">~5,8%</div>
+          <div class="stat-label">Taxa de reciclagem de Londrina</div>
         </div>
         <div class="stat-card">
           <div class="stat-icon">👥</div>
-          <div class="stat-value" id="stat-visitors">0</div>
-          <div class="stat-label">Visitantes únicos</div>
+          <div class="stat-value">~2.500</div>
+          <div class="stat-label">Catadores e cooperados no Paraná</div>
         </div>
       </div>
 
       <div class="charts-grid">
         <div class="chart-card">
-          <h3>Pessoas que reciclam vs. não reciclam</h3>
-          <p class="chart-sub">Pesquisa de percepção (dados demonstrativos — Brasil, 2024)</p>
-          <div class="chart-wrap"><canvas id="chart-recycle"></canvas></div>
+          <h3>Composição dos resíduos de Londrina</h3>
+          <p class="chart-sub">Fonte: Prefeitura de Londrina / SNIS 2022</p>
+          <div class="chart-wrap"><canvas id="chart-composicao"></canvas></div>
         </div>
         <div class="chart-card">
-          <h3>Materiais mais reaproveitados</h3>
-          <p class="chart-sub">Baseado nos registros reais desta plataforma</p>
-          <div class="chart-wrap"><canvas id="chart-categories"></canvas></div>
+          <h3>Destinação dos resíduos (Londrina)</h3>
+          <p class="chart-sub">Fonte: SNIS 2022</p>
+          <div class="chart-wrap"><canvas id="chart-destinacao"></canvas></div>
         </div>
         <div class="chart-card">
-          <h3>Destinação correta dos resíduos no Brasil</h3>
-          <p class="chart-sub">Dados demonstrativos baseados em relatórios públicos (ABRELPE)</p>
-          <div class="chart-wrap"><canvas id="chart-disposal"></canvas></div>
+          <h3>Taxa de reciclagem — cidades paranaenses</h3>
+          <p class="chart-sub">Fonte: SNIS 2022 (comparativo)</p>
+          <div class="chart-wrap"><canvas id="chart-cidades"></canvas></div>
         </div>
         <div class="chart-card">
-          <h3>Impacto do descarte inadequado</h3>
-          <p class="chart-sub">Estimativas demonstrativas por tipo de resíduo</p>
-          <div class="chart-wrap"><canvas id="chart-env"></canvas></div>
+          <h3>Evolução da coleta seletiva em Londrina</h3>
+          <p class="chart-sub">Fonte: Prefeitura de Londrina (2018-2023)</p>
+          <div class="chart-wrap"><canvas id="chart-evolucao"></canvas></div>
         </div>
       </div>
+
+      <p class="data-note">📊 Dados públicos consolidados de SNIS 2022, IBGE 2022, ABRELPE 2023 e Prefeitura de Londrina. A taxa de reciclagem é estimada com base no volume de coleta seletiva sobre o total coletado.</p>
     </div>
   </section>
 
-  <!-- ODS -->
-  <section class="section section-alt" id="ods">
+  <!-- JOGO DA MEMÓRIA -->
+  <section class="section" id="memoria">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">Objetivos de Desenvolvimento Sustentável</span>
-        <h2 class="section-title">As ODS que a ReUse IA aborda</h2>
-        <p class="section-sub">Cada ODS abaixo é diretamente impactada pelas ações da plataforma.</p>
-      </div>
-
-      <div class="ods-grid">
-        <div class="ods-card">
-          <div class="ods-num">ODS 12</div>
-          <div class="ods-icon">♻️</div>
-          <h3>Consumo e Produção Responsáveis</h3>
-          <p class="ods-why"><strong>Por que abordamos:</strong> A plataforma incentiva a reutilização, prolonga a vida útil dos materiais e reduz o desperdício, promovendo padrões de consumo mais conscientes.</p>
-        </div>
-        <div class="ods-card">
-          <div class="ods-num">ODS 13</div>
-          <div class="ods-icon">🌍</div>
-          <h3>Ação Contra a Mudança Global do Clima</h3>
-          <p class="ods-why"><strong>Por que abordamos:</strong> Ao reduzir o descarte inadequado e estimular a reutilização, diminuímos emissões associadas à produção e ao transporte de novos materiais.</p>
-        </div>
-        <div class="ods-card">
-          <div class="ods-num">ODS 11</div>
-          <div class="ods-icon">🏙️</div>
-          <h3>Cidades e Comunidades Sustentáveis</h3>
-          <p class="ods-why"><strong>Por que abordamos:</strong> A central de doações e trocas fortalece redes locais, reduzindo resíduos urbanos e promovendo a cooperação comunitária.</p>
-        </div>
-        <div class="ods-card">
-          <div class="ods-num">ODS 4</div>
-          <div class="ods-icon">📚</div>
-          <h3>Educação de Qualidade</h3>
-          <p class="ods-why"><strong>Por que abordamos:</strong> A área educativa e o jogo interativo ensinam sobre economia circular, reciclagem e consumo consciente de forma acessível.</p>
-        </div>
-        <div class="ods-card">
-          <div class="ods-num">ODS 9</div>
-          <div class="ods-icon">🧪</div>
-          <h3>Indústria, Inovação e Infraestrutura</h3>
-          <p class="ods-why"><strong>Por que abordamos:</strong> A plataforma utiliza IA e tecnologia web moderna para resolver um problema ambiental, demonstrando inovação aplicada à sustentabilidade.</p>
-        </div>
-        <div class="ods-card">
-          <div class="ods-num">ODS 17</div>
-          <div class="ods-icon">🤝</div>
-          <h3>Parcerias e Meios de Implementação</h3>
-          <p class="ods-why"><strong>Por que abordamos:</strong> A plataforma conecta pessoas, promove trocas e fortalece parcerias locais em torno da economia circular.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- JOGO -->
-  <section class="section" id="jogo">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Desafio ReUse</span>
-        <h2 class="section-title">Separe Certo — jogo interativo</h2>
-        <p class="section-sub">Arraste (ou clique) cada item para a lixeira correta. Ganhe pontos e conquistas!</p>
+        <span class="section-tag">Jogo da Memória ReUse</span>
+        <h2 class="section-title">Encontre os pares — e aprenda sobre resíduos</h2>
+        <p class="section-sub">Vire as cartas e combine os pares de materiais recicláveis. Ganhe pontos e conquistas!</p>
       </div>
 
       <div class="game-wrap">
         <div class="game-hud">
-          <div class="hud-item"><span>Pontos</span><strong id="game-score">0</strong></div>
-          <div class="hud-item"><span>Acertos</span><strong id="game-hits">0</strong></div>
-          <div class="hud-item"><span>Erros</span><strong id="game-misses">0</strong></div>
-          <div class="hud-item"><span>Nível</span><strong id="game-level">1</strong></div>
+          <div class="hud-item"><span>Pontos</span><strong id="mem-score">0</strong></div>
+          <div class="hud-item"><span>Jogadas</span><strong id="mem-moves">0</strong></div>
+          <div class="hud-item"><span>Pares</span><strong id="mem-pairs">0 / 8</strong></div>
+          <div class="hud-item"><span>Tempo</span><strong id="mem-time">00:00</strong></div>
         </div>
 
-        <div class="game-area">
-          <div class="game-item" id="game-item">
-            <div class="game-item-icon" id="game-item-icon">🥤</div>
-            <div class="game-item-name" id="game-item-name">—</div>
-          </div>
-          <div class="game-bins" id="game-bins">
-            <button class="bin bin-plastico" data-cat="plastico" aria-label="Lixeira de plástico">
-              <span class="bin-icon">🧴</span><span class="bin-name">Plástico</span>
-            </button>
-            <button class="bin bin-papel" data-cat="papel" aria-label="Lixeira de papel">
-              <span class="bin-icon">📄</span><span class="bin-name">Papel</span>
-            </button>
-            <button class="bin bin-vidro" data-cat="vidro" aria-label="Lixeira de vidro">
-              <span class="bin-icon">🍾</span><span class="bin-name">Vidro</span>
-            </button>
-            <button class="bin bin-metal" data-cat="metal" aria-label="Lixeira de metal">
-              <span class="bin-icon">🥫</span><span class="bin-name">Metal</span>
-            </button>
-            <button class="bin bin-organico" data-cat="organico" aria-label="Lixeira orgânica">
-              <span class="bin-icon">🍎</span><span class="bin-name">Orgânico</span>
-            </button>
-          </div>
-          <div class="game-feedback" id="game-feedback" aria-live="polite"></div>
-          <button class="btn btn-primary" id="btn-game-restart">🔄 Reiniciar jogo</button>
+        <div class="memory-grid" id="memory-grid"></div>
+
+        <div class="memory-actions">
+          <button class="btn btn-primary" id="btn-mem-restart">🔄 Novo jogo</button>
         </div>
 
-        <div class="achievements">
-          <h4>🏆 Conquistas</h4>
-          <div class="ach-list" id="ach-list">
-            <span class="ach" data-ach="10">10 pontos</span>
-            <span class="ach" data-ach="50">50 pontos</span>
-            <span class="ach" data-ach="100">100 pontos</span>
-            <span class="ach" data-ach="200">200 pontos</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- EDUCATIVO -->
-  <section class="section section-alt" id="educativo">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Área Educativa</span>
-        <h2 class="section-title">Aprenda sobre sustentabilidade</h2>
-        <p class="section-sub">Conteúdo para transformar consciência em ação.</p>
-      </div>
-
-      <div class="edu-grid">
-        <article class="edu-card">
-          <h3>🔄 O que é economia circular?</h3>
-          <p>Modelo que mantém materiais em uso o máximo possível, reduzindo a extração de recursos e o descarte. Baseia-se em reduzir, reutilizar, reparar e reciclar.</p>
-        </article>
-        <article class="edu-card">
-          <h3>♻️ Reutilização x Reciclagem</h3>
-          <p><strong>Reutilizar</strong> é dar nova função a um material. <strong>Reciclar</strong> transforma o material em matéria-prima para um novo produto. Reutilizar economiza mais energia.</p>
-        </article>
-        <article class="edu-card">
-          <h3>🗂️ Como separar resíduos</h3>
-          <p>Separe por cor: <strong>azul</strong> papel, <strong>vermelho</strong> plástico, <strong>verde</strong> vidro, <strong>amarelo</strong> metal e <strong>marrom</strong> orgânico. Lave os recicláveis antes de descartar.</p>
-        </article>
-        <article class="edu-card">
-          <h3>🚛 Importância da coleta seletiva</h3>
-          <p>A coleta seletiva evita que recicláveis cheguem a aterros e lixões, reduz a poluição e gera renda para catadores.</p>
-        </article>
-        <article class="edu-card">
-          <h3>🛒 Consumo consciente</h3>
-          <p>Compre apenas o necessário, prefira produtos duráveis, de empresas sustentáveis e com menos embalagem.</p>
-        </article>
-        <article class="edu-card">
-          <h3>💡 Dicas de sustentabilidade</h3>
-          <p>Leve sacola retornável, use garrafa reutilizável, repare objetos antes de descartar e doe o que não usa mais.</p>
-        </article>
+        <div class="memory-message" id="memory-message"></div>
       </div>
     </div>
   </section>
 
   <!-- SOBRE -->
-  <section class="section" id="sobre">
+  <section class="section section-alt" id="sobre">
     <div class="container">
       <div class="section-header">
         <span class="section-tag">Sobre o Projeto</span>
-        <h2 class="section-title">ReUse IA</h2>
+        <h2 class="section-title">ReUse IA — Londrina-PR</h2>
         <p class="section-sub">Tecnologia, sustentabilidade e impacto social.</p>
       </div>
       <div class="about-grid">
         <div class="about-card">
           <h3>🎯 Objetivo</h3>
-          <p>Utilizar inteligência artificial para ajudar pessoas a identificar materiais descartados, descobrir novas possibilidades de reutilização e conectar quem tem materiais sem utilidade com quem pode aproveitá-los.</p>
+          <p>Utilizar IA real para identificar materiais descartados, sugerir reutilização e conectar pessoas — com foco em Londrina e região.</p>
         </div>
         <div class="about-card">
           <h3>🧠 Tecnologia</h3>
-          <p>HTML5, CSS3, JavaScript puro, Chart.js para gráficos, arquitetura preparada para integração futura com IA, Firebase/Supabase, autenticação e mapas.</p>
+          <p>HTML5, CSS3, JavaScript, TensorFlow.js (MobileNet), Chart.js. IA 100% no navegador, sem backend.</p>
         </div>
         <div class="about-card">
-          <h3>💚 Impacto</h3>
-          <p>Reduzir o descarte inadequado, prolongar a vida útil dos materiais, educar para o consumo consciente e fortalecer redes locais de doação e troca.</p>
+          <h3>🌍 ODS Abordadas</h3>
+          <p>ODS 12 (Consumo Responsável), 13 (Ação Climática), 11 (Cidades Sustentáveis), 4 (Educação), 9 (Inovação) e 17 (Parcerias).</p>
         </div>
         <div class="about-card">
           <h3>🔐 Privacidade</h3>
-          <p>Não publicamos endereços residenciais, telefones ou dados pessoais. Não há pagamentos nem encontros presenciais automáticos.</p>
+          <p>Nenhuma imagem é enviada para servidores. Tudo é processado no seu navegador. Dados salvos em localStorage.</p>
         </div>
       </div>
     </div>
@@ -496,120 +318,17 @@
 
   <!-- FOOTER -->
   <footer class="footer">
-    <div class="container footer-grid">
-      <div>
-        <div class="logo">
-          <div class="logo-icon">♻</div>
-          <div class="logo-text">
-            <span class="logo-title">ReUse <span class="accent">IA</span></span>
-            <span class="logo-sub">Sustentabilidade Inteligente</span>
-          </div>
-        </div>
-        <p class="footer-desc">O que seria descartado pode ganhar uma nova oportunidade.</p>
+    <div class="container">
+      <div class="footer-bottom">
+        <p>© <span id="year"></span> ReUse IA — Projeto de inovação científica e tecnológica · Londrina-PR</p>
       </div>
-      <div>
-        <h4>Navegação</h4>
-        <ul class="footer-links">
-          <li><a href="#inicio">Início</a></li>
-          <li><a href="#identificar">Identificar material</a></li>
-          <li><a href="#laboratorio">Ideias de reutilização</a></li>
-          <li><a href="#doacoes">Doações e trocas</a></li>
-          <li><a href="#impacto">Impacto ambiental</a></li>
-          <li><a href="#ods">ODS</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Projeto</h4>
-        <ul class="footer-links">
-          <li><a href="#sobre">Sobre</a></li>
-          <li><a href="#educativo">Área educativa</a></li>
-          <li><a href="#jogo">Jogo Separe Certo</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Privacidade</h4>
-        <p class="footer-desc small">Não coletamos dados pessoais sensíveis. Visitantes são contados de forma anônima.</p>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© <span id="year"></span> ReUse IA — Projeto de inovação científica e tecnológica.</p>
     </div>
   </footer>
 
-  <!-- MODAL: Cadastrar doação -->
-  <div class="modal" id="modal-donation" hidden>
-    <div class="modal-content">
-      <button class="modal-close" id="modal-close" aria-label="Fechar">✕</button>
-      <h2>Cadastrar anúncio</h2>
-      <form id="form-donation" novalidate>
-        <div class="form-row">
-          <label for="d-name">Nome do material *</label>
-          <input type="text" id="d-name" required minlength="3" />
-        </div>
-        <div class="form-row">
-          <label for="d-cat">Categoria *</label>
-          <select id="d-cat" required>
-            <option value="">Selecione</option>
-            <option value="plastico">Plástico</option>
-            <option value="papel">Papel e papelão</option>
-            <option value="vidro">Vidro</option>
-            <option value="metal">Metal</option>
-            <option value="tecido">Tecido</option>
-            <option value="madeira">Madeira</option>
-            <option value="outros">Outros</option>
-          </select>
-        </div>
-        <div class="form-row">
-          <label for="d-qty">Quantidade aproximada *</label>
-          <input type="text" id="d-qty" required placeholder="Ex.: 10 unidades" />
-        </div>
-        <div class="form-row">
-          <label for="d-state">Estado de conservação *</label>
-          <select id="d-state" required>
-            <option value="">Selecione</option>
-            <option value="novo">Novo</option>
-            <option value="otimo">Ótimo</option>
-            <option value="bom">Bom</option>
-            <option value="regular">Regular</option>
-          </select>
-        </div>
-        <div class="form-row">
-          <label for="d-desc">Descrição *</label>
-          <textarea id="d-desc" required minlength="10" rows="3"></textarea>
-        </div>
-        <div class="form-row">
-          <label for="d-city">Cidade / região aproximada *</label>
-          <input type="text" id="d-city" required placeholder="Ex.: São Paulo — Zona Sul" />
-        </div>
-        <div class="form-row">
-          <label for="d-type">Tipo *</label>
-          <select id="d-type" required>
-            <option value="doacao">Doação</option>
-            <option value="troca">Troca</option>
-          </select>
-        </div>
-        <p class="form-note">🔒 Não publicamos endereços, telefones ou dados pessoais.</p>
-        <div class="form-actions">
-          <button type="button" class="btn btn-outline" id="btn-cancel-donation">Cancelar</button>
-          <button type="submit" class="btn btn-primary">Publicar anúncio</button>
-        </div>
-        <p class="form-error" id="form-error" hidden></p>
-      </form>
-    </div>
-  </div>
-
-  <!-- MODAL: Detalhe da ideia -->
-  <div class="modal" id="modal-idea" hidden>
-    <div class="modal-content modal-large">
-      <button class="modal-close" id="modal-idea-close" aria-label="Fechar">✕</button>
-      <div id="modal-idea-body"></div>
-    </div>
-  </div>
-
-  <!-- Toast -->
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   <script src="script.js"></script>
+  <script src="chat-ia.js"></script>
+  <script src="jogo-memoria.js"></script>
 </body>
 </html>
