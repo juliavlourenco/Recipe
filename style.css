@@ -1,5 +1,5 @@
 /* ============================================
-   ReUse IA v3.0 — Alvorada do Sul-PR
+   ReUse IA v3.1 — Alvorada do Sul-PR
    ============================================ */
 :root {
   --green-dark: #174D36;
@@ -183,6 +183,25 @@ ul { list-style: none; }
 .stat-value { font-size: 1.8rem; font-weight: 800; color: var(--green); line-height: 1.1; margin-bottom: 4px; }
 .stat-label { font-size: 0.82rem; color: var(--text-soft); font-weight: 500; }
 
+/* RESEARCH BANNER */
+.research-banner {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  background: linear-gradient(135deg, var(--green-dark), var(--green));
+  color: #fff;
+  padding: 20px 24px;
+  border-radius: var(--radius);
+  margin-bottom: 32px;
+  box-shadow: var(--shadow-md);
+}
+.research-icon { font-size: 2.2rem; flex-shrink: 0; }
+.research-info strong { font-size: 1rem; display: block; margin-bottom: 4px; }
+.research-info p { font-size: 0.85rem; opacity: 0.92; line-height: 1.5; }
+@media (max-width: 600px) {
+  .research-banner { flex-direction: column; text-align: center; padding: 16px; }
+}
+
 /* CHARTS */
 .charts-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
 .chart-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow-sm); }
@@ -190,7 +209,7 @@ ul { list-style: none; }
 .chart-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 4px; }
 .chart-sub { font-size: 0.78rem; color: var(--text-soft); margin-bottom: 16px; }
 .chart-wrap { position: relative; height: 280px; }
-.data-note { font-size: 0.8rem; color: var(--text-soft); text-align: center; margin-top: 24px; font-style: italic; }
+.data-note { font-size: 0.8rem; color: var(--text-soft); text-align: center; margin-top: 24px; font-style: italic; line-height: 1.6; }
 
 /* ODS */
 .ods-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
@@ -287,4 +306,4 @@ ul { list-style: none; }
   .memory-grid { gap: 6px; }
   .mem-face { font-size: 1.2rem; }
   .logo-sub { display: none; }
-}
+}  
