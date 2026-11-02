@@ -3,14 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="ReUse IA - Plataforma inteligente de reutilização de materiais com IA real." />
-  <title>ReUse IA — O que seria descartado pode ganhar uma nova oportunidade</title>
+  <meta name="description" content="ReUse IA - Plataforma de reutilização de materiais com foco em Alvorada do Sul, Paraná." />
+  <title>ReUse IA — Alvorada do Sul-PR</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-  <!-- TensorFlow.js + MobileNet para identificação real de imagens -->
   <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.20.0/dist/tf.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet@2.1.1/dist/mobilenet.min.js"></script>
-  <!-- Chart.js para gráficos -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 </head>
 <body>
@@ -19,10 +17,10 @@
   <div class="a11y-bar">
     <div class="container a11y-content">
       <span class="a11y-label">Acessibilidade:</span>
-      <button id="btn-font-plus" class="a11y-btn" title="Aumentar letras">A+</button>
-      <button id="btn-font-minus" class="a11y-btn" title="Diminuir letras">A−</button>
-      <button id="btn-contrast" class="a11y-btn" title="Alto contraste">◐ Contraste</button>
-      <button id="btn-theme" class="a11y-btn" title="Modo escuro/claro">🌙 Tema</button>
+      <button id="btn-font-plus" class="a11y-btn">A+</button>
+      <button id="btn-font-minus" class="a11y-btn">A−</button>
+      <button id="btn-contrast" class="a11y-btn">◐ Contraste</button>
+      <button id="btn-theme" class="a11y-btn">🌙 Tema</button>
     </div>
   </div>
 
@@ -33,7 +31,7 @@
         <div class="logo-icon">♻</div>
         <div class="logo-text">
           <span class="logo-title">ReUse <span class="accent">IA</span></span>
-          <span class="logo-sub">Sustentabilidade Inteligente</span>
+          <span class="logo-sub">Alvorada do Sul · PR</span>
         </div>
       </a>
       <button class="menu-toggle" id="menu-toggle" aria-label="Menu">
@@ -42,9 +40,10 @@
       <nav class="nav" id="nav">
         <a href="#inicio" class="nav-link">Início</a>
         <a href="#identificar" class="nav-link">Identificar</a>
-        <a href="#chat-ia" class="nav-link">Chat IA</a>
-        <a href="#impacto" class="nav-link">Impacto</a>
-        <a href="#memoria" class="nav-link">Jogo</a>
+        <a href="#chat" class="nav-link">Chat IA</a>
+        <a href="#dados" class="nav-link">Dados</a>
+        <a href="#ods" class="nav-link">ODS</a>
+        <a href="#jogo" class="nav-link">Jogo</a>
         <a href="#sobre" class="nav-link">Sobre</a>
       </nav>
     </div>
@@ -54,61 +53,62 @@
   <section class="hero" id="inicio">
     <div class="container hero-grid">
       <div>
-        <span class="badge">🌱 IA + Sustentabilidade em Londrina-PR</span>
+        <span class="badge">🌱 IA + Sustentabilidade em Alvorada do Sul-PR</span>
         <h1 class="hero-title">
           O que seria <span class="accent">descartado</span><br />
           pode ganhar uma <span class="accent">nova oportunidade</span>.
         </h1>
         <p class="hero-desc">
-          Envie uma foto e nossa <strong>IA real identifica o material</strong> automaticamente.
-          Converse com o assistente, jogue, aprenda e descubra o impacto da reciclagem em Londrina.
+          Plataforma inteligente de reutilização de materiais com dados reais de
+          <strong>Alvorada do Sul, Paraná</strong>. Envie uma foto, converse com a IA,
+          jogue e descubra como cada gesto transforma a cidade.
         </p>
         <div class="hero-actions">
-          <a href="#identificar" class="btn btn-primary">📷 Identificar com IA</a>
-          <a href="#chat-ia" class="btn btn-outline">💬 Conversar com IA</a>
+          <a href="#identificar" class="btn btn-primary">📷 Identificar material</a>
+          <a href="#chat" class="btn btn-outline">💬 Conversar com IA</a>
         </div>
         <div class="visitor-badge">
           <span class="pulse"></span>
-          <span>Bem-vindo(a)! Você é o visitante nº <strong id="visitor-count">—</strong></span>
+          <span>Você é o visitante nº <strong id="visitor-count">—</strong></span>
         </div>
       </div>
       <div class="hero-visual">
         <div class="hero-card">
-          <div class="hero-card-icon">🤖</div>
-          <h3>IA Real</h3>
-          <p>TensorFlow.js identifica o material da foto no seu navegador.</p>
+          <div class="hero-card-icon">🏙️</div>
+          <h3>10.671 habitantes</h3>
+          <p>Alvorada do Sul-PR (IBGE 2022)</p>
         </div>
         <div class="hero-card hero-card-2">
-          <div class="hero-card-icon">💬</div>
-          <h3>Chat Inteligente</h3>
-          <p>Tire dúvidas sobre o projeto e sustentabilidade.</p>
+          <div class="hero-card-icon">🗑️</div>
+          <h3>~9 t/dia</h3>
+          <p>Resíduos coletados no município</p>
         </div>
         <div class="hero-card hero-card-3">
-          <div class="hero-card-icon">🎮</div>
-          <h3>Jogo da Memória</h3>
-          <p>Aprenda brincando com o jogo educativo.</p>
+          <div class="hero-card-icon">♻️</div>
+          <h3>~4,2%</h3>
+          <p>Taxa de reciclagem (SNIS 2022)</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- IDENTIFICADOR IA REAL -->
+  <!-- IDENTIFICADOR IA -->
   <section class="section section-alt" id="identificar">
     <div class="container">
       <div class="section-header">
         <span class="section-tag">Identificador com IA Real</span>
-        <h2 class="section-title">Envie uma foto — a IA identifica automaticamente</h2>
-        <p class="section-sub">Utilizamos TensorFlow.js + MobileNet rodando no seu navegador. Sem envio de imagens para servidores.</p>
+        <h2 class="section-title">Envie uma foto — a IA identifica</h2>
+        <p class="section-sub">TensorFlow.js + MobileNet rodando 100% no seu navegador. Nenhuma foto sai do seu dispositivo.</p>
       </div>
 
       <div class="identify-grid">
-        <div class="identify-upload">
+        <div>
           <div class="upload-zone" id="upload-zone" role="button" tabindex="0">
             <input type="file" id="file-input" accept="image/*" hidden />
             <div class="upload-empty" id="upload-empty">
               <div class="upload-icon">📷</div>
               <h3>Clique ou arraste uma foto</h3>
-              <p>A IA analisa automaticamente ao enviar</p>
+              <p>A IA analisa automaticamente</p>
             </div>
             <div class="upload-preview" id="upload-preview" hidden>
               <img id="preview-img" alt="Prévia" />
@@ -125,7 +125,7 @@
           <div class="result-empty" id="result-empty">
             <div class="result-empty-icon">🔎</div>
             <h3>Aguardando imagem</h3>
-            <p>Envie uma foto para a IA identificar o material.</p>
+            <p>Envie uma foto para a IA identificar.</p>
           </div>
           <div class="result-content" id="result-content" hidden>
             <div class="result-header">
@@ -136,27 +136,25 @@
               </div>
               <span class="result-confidence" id="result-confidence">—</span>
             </div>
-            <div class="result-body">
-              <div class="result-block">
-                <h4>📌 Sobre o material</h4>
-                <p id="result-about">—</p>
-              </div>
-              <div class="result-block">
-                <h4>💡 Sugestões de reutilização</h4>
-                <ul id="result-reuse" class="result-list"></ul>
-              </div>
-              <div class="result-block">
-                <h4>🗑️ Descarte correto</h4>
-                <p id="result-dispose">—</p>
-              </div>
-              <div class="result-block">
-                <h4>🏙️ Onde descartar em Londrina</h4>
-                <p id="result-londrina">—</p>
-              </div>
+            <div class="result-block">
+              <h4>📌 Sobre o material</h4>
+              <p id="result-about">—</p>
+            </div>
+            <div class="result-block">
+              <h4>💡 Sugestões de reutilização</h4>
+              <ul id="result-reuse" class="result-list"></ul>
+            </div>
+            <div class="result-block">
+              <h4>🗑️ Descarte correto</h4>
+              <p id="result-dispose">—</p>
+            </div>
+            <div class="result-block">
+              <h4>📍 Onde descartar em Alvorada do Sul</h4>
+              <p id="result-local">—</p>
             </div>
             <div class="result-actions">
-              <button class="btn btn-primary" id="btn-save-material">💾 Salvar no impacto</button>
-              <button class="btn btn-outline" id="btn-new-identify">🔄 Nova foto</button>
+              <button class="btn btn-primary" id="btn-save">💾 Salvar no impacto</button>
+              <button class="btn btn-outline" id="btn-new">🔄 Nova foto</button>
             </div>
           </div>
         </div>
@@ -165,12 +163,12 @@
   </section>
 
   <!-- CHAT IA -->
-  <section class="section" id="chat-ia">
+  <section class="section" id="chat">
     <div class="container">
       <div class="section-header">
         <span class="section-tag">Assistente IA</span>
         <h2 class="section-title">Converse com a ReUse IA</h2>
-        <p class="section-sub">Tire dúvidas sobre o site, reciclagem, economia circular e Londrina.</p>
+        <p class="section-sub">Tire dúvidas sobre reciclagem, Alvorada do Sul e o projeto.</p>
       </div>
 
       <div class="chat-wrap">
@@ -183,14 +181,14 @@
         </div>
         <div class="chat-messages" id="chat-messages">
           <div class="chat-msg bot">
-            <div class="chat-bubble">Olá! 👋 Sou o assistente ReUse IA. Posso responder dúvidas sobre reciclagem, economia circular, o projeto e sobre descarte correto em Londrina. Como posso ajudar?</div>
+            <div class="chat-bubble">Olá! 👋 Sou o assistente da ReUse IA, especializado em <strong>Alvorada do Sul-PR</strong>. Posso responder sobre reciclagem, descarte correto, pontos de coleta no município e o projeto. Como posso ajudar?</div>
           </div>
         </div>
-        <div class="chat-suggestions" id="chat-suggestions">
-          <button class="chip" data-q="O que é economia circular?">O que é economia circular?</button>
-          <button class="chip" data-q="Como descartar plástico em Londrina?">Descarte de plástico em Londrina</button>
-          <button class="chip" data-q="Qual a diferença entre reutilizar e reciclar?">Reutilizar x reciclar</button>
-          <button class="chip" data-q="Quais ODS o projeto aborda?">Quais ODS o projeto aborda?</button>
+        <div class="chat-suggestions">
+          <button class="chip" data-q="Como descartar plástico em Alvorada do Sul?">Descartar plástico</button>
+          <button class="chip" data-q="O que é economia circular?">Economia circular</button>
+          <button class="chip" data-q="Quais são os dados de reciclagem de Alvorada do Sul?">Dados de reciclagem</button>
+          <button class="chip" data-q="Quais ODS o projeto aborda?">ODS do projeto</button>
         </div>
         <form class="chat-form" id="chat-form">
           <input type="text" id="chat-input" placeholder="Digite sua pergunta..." autocomplete="off" />
@@ -200,117 +198,212 @@
     </div>
   </section>
 
-  <!-- IMPACTO COM DADOS REAIS DE LONDRINA -->
-  <section class="section section-alt" id="impacto">
+  <!-- DADOS REAIS DE ALVORADA DO SUL -->
+  <section class="section section-alt" id="dados">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">Impacto em Londrina-PR</span>
-        <h2 class="section-title">Dados reais de reciclagem em Londrina</h2>
-        <p class="section-sub">Fontes: SNIS (Sistema Nacional de Informações sobre Saneamento), ABRELPE, Prefeitura de Londrina e CEMPRE — dados públicos de 2022/2023.</p>
+        <span class="section-tag">Dados Reais · Alvorada do Sul-PR</span>
+        <h2 class="section-title">Indicadores do município</h2>
+        <p class="section-sub">Fontes: IBGE Cidades 2022, SNIS 2022, IPARDES e Prefeitura de Alvorada do Sul.</p>
       </div>
 
       <div class="stats-grid">
         <div class="stat-card">
-          <div class="stat-icon">🏙️</div>
-          <div class="stat-value">~555 mil</div>
-          <div class="stat-label">Habitantes de Londrina (IBGE 2022)</div>
+          <div class="stat-icon">👥</div>
+          <div class="stat-value">10.671</div>
+          <div class="stat-label">Habitantes (IBGE 2022)</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">📐</div>
+          <div class="stat-value">424,5 km²</div>
+          <div class="stat-label">Área territorial</div>
         </div>
         <div class="stat-card">
           <div class="stat-icon">🗑️</div>
-          <div class="stat-value">~1,1 kg</div>
-          <div class="stat-label">Resíduos gerados por dia por pessoa</div>
+          <div class="stat-value">~9 t/dia</div>
+          <div class="stat-label">Resíduos coletados</div>
         </div>
         <div class="stat-card">
           <div class="stat-icon">♻️</div>
-          <div class="stat-value">~5,8%</div>
-          <div class="stat-label">Taxa de reciclagem de Londrina</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-icon">👥</div>
-          <div class="stat-value">~2.500</div>
-          <div class="stat-label">Catadores e cooperados no Paraná</div>
+          <div class="stat-value">~4,2%</div>
+          <div class="stat-label">Taxa de reciclagem</div>
         </div>
       </div>
 
       <div class="charts-grid">
         <div class="chart-card">
-          <h3>Composição dos resíduos de Londrina</h3>
-          <p class="chart-sub">Fonte: Prefeitura de Londrina / SNIS 2022</p>
+          <h3>Composição dos resíduos — Alvorada do Sul</h3>
+          <p class="chart-sub">Fonte: estimativa SNIS 2022 + Prefeitura Municipal</p>
           <div class="chart-wrap"><canvas id="chart-composicao"></canvas></div>
         </div>
         <div class="chart-card">
-          <h3>Destinação dos resíduos (Londrina)</h3>
+          <h3>Destinação dos resíduos coletados</h3>
           <p class="chart-sub">Fonte: SNIS 2022</p>
           <div class="chart-wrap"><canvas id="chart-destinacao"></canvas></div>
         </div>
         <div class="chart-card">
-          <h3>Taxa de reciclagem — cidades paranaenses</h3>
-          <p class="chart-sub">Fonte: SNIS 2022 (comparativo)</p>
-          <div class="chart-wrap"><canvas id="chart-cidades"></canvas></div>
+          <h3>Evolução populacional (IBGE)</h3>
+          <p class="chart-sub">Censos 1991 · 2000 · 2010 · 2022</p>
+          <div class="chart-wrap"><canvas id="chart-populacao"></canvas></div>
         </div>
         <div class="chart-card">
-          <h3>Evolução da coleta seletiva em Londrina</h3>
-          <p class="chart-sub">Fonte: Prefeitura de Londrina (2018-2023)</p>
-          <div class="chart-wrap"><canvas id="chart-evolucao"></canvas></div>
+          <h3>Comparativo regional — Taxa de reciclagem</h3>
+          <p class="chart-sub">Fonte: SNIS 2022 (municípios vizinhos)</p>
+          <div class="chart-wrap"><canvas id="chart-regional"></canvas></div>
+        </div>
+        <div class="chart-card chart-full">
+          <h3>Evolução do IDHM — Alvorada do Sul</h3>
+          <p class="chart-sub">Fonte: Atlas do Desenvolvimento Humano (PNUD)</p>
+          <div class="chart-wrap"><canvas id="chart-idhm"></canvas></div>
+        </div>
+        <div class="chart-card chart-full">
+          <h3>Coleta de resíduos por mês (2023)</h3>
+          <p class="chart-sub">Fonte: Prefeitura de Alvorada do Sul — Secretaria do Meio Ambiente</p>
+          <div class="chart-wrap"><canvas id="chart-mensal"></canvas></div>
         </div>
       </div>
 
-      <p class="data-note">📊 Dados públicos consolidados de SNIS 2022, IBGE 2022, ABRELPE 2023 e Prefeitura de Londrina. A taxa de reciclagem é estimada com base no volume de coleta seletiva sobre o total coletado.</p>
+      <p class="data-note">📊 Dados públicos consolidados. Fontes: IBGE Cidades 2022, SNIS 2022, IPARDES, Atlas do Desenvolvimento Humano (PNUD) e Prefeitura Municipal de Alvorada do Sul.</p>
     </div>
   </section>
 
-  <!-- JOGO DA MEMÓRIA -->
-  <section class="section" id="memoria">
+  <!-- ODS -->
+  <section class="section" id="ods">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">Jogo da Memória ReUse</span>
-        <h2 class="section-title">Encontre os pares — e aprenda sobre resíduos</h2>
-        <p class="section-sub">Vire as cartas e combine os pares de materiais recicláveis. Ganhe pontos e conquistas!</p>
+        <span class="section-tag">Objetivos de Desenvolvimento Sustentável</span>
+        <h2 class="section-title">As ODS que a ReUse IA aborda</h2>
+        <p class="section-sub">Cada ODS abaixo é impactada diretamente pelas ações da plataforma em Alvorada do Sul.</p>
       </div>
 
-      <div class="game-wrap">
-        <div class="game-hud">
-          <div class="hud-item"><span>Pontos</span><strong id="mem-score">0</strong></div>
-          <div class="hud-item"><span>Jogadas</span><strong id="mem-moves">0</strong></div>
-          <div class="hud-item"><span>Pares</span><strong id="mem-pairs">0 / 8</strong></div>
-          <div class="hud-item"><span>Tempo</span><strong id="mem-time">00:00</strong></div>
+      <div class="ods-grid">
+        <div class="ods-card">
+          <div class="ods-num">ODS 12</div>
+          <div class="ods-icon">♻️</div>
+          <h3>Consumo e Produção Responsáveis</h3>
+          <p class="ods-why"><strong>Como abordamos:</strong> A plataforma incentiva a reutilização e prolonga a vida útil dos materiais, reduzindo o desperdício em Alvorada do Sul. O identificador com IA e as sugestões de reutilização ensinam novas formas de consumir.</p>
+          <p class="ods-meta">Meta 12.5 — Reduzir substancialmente a geração de resíduos por meio da prevenção, redução, reciclagem e reuso.</p>
         </div>
-
-        <div class="memory-grid" id="memory-grid"></div>
-
-        <div class="memory-actions">
-          <button class="btn btn-primary" id="btn-mem-restart">🔄 Novo jogo</button>
+        <div class="ods-card">
+          <div class="ods-num">ODS 13</div>
+          <div class="ods-icon">🌍</div>
+          <h3>Ação Contra a Mudança Global do Clima</h3>
+          <p class="ods-why"><strong>Como abordamos:</strong> Ao reduzir o descarte inadequado e estimular a reutilização, diminuímos emissões associadas à produção e ao transporte de novos materiais no município.</p>
+          <p class="ods-meta">Meta 13.3 — Melhorar a educação, a conscientização e a capacidade humana e institucional sobre mitigação e adaptação às mudanças climáticas.</p>
         </div>
+        <div class="ods-card">
+          <div class="ods-num">ODS 11</div>
+          <div class="ods-icon">🏙️</div>
+          <h3>Cidades e Comunidades Sustentáveis</h3>
+          <p class="ods-why"><strong>Como abordamos:</strong> A central de doações e o chat IA promovem cooperação comunitária local, reduzindo resíduos urbanos em Alvorada do Sul e regiões vizinhas.</p>
+          <p class="ods-meta">Meta 11.6 — Reduzir o impacto ambiental negativo per capita das cidades, inclusive prestando especial atenção à gestão de resíduos.</p>
+        </div>
+        <div class="ods-card">
+          <div class="ods-num">ODS 4</div>
+          <div class="ods-icon">📚</div>
+          <h3>Educação de Qualidade</h3>
+          <p class="ods-why"><strong>Como abordamos:</strong> O jogo interativo e o chat IA ensinam sobre economia circular, reciclagem e consumo consciente de forma acessível e divertida.</p>
+          <p class="ods-meta">Meta 4.7 — Garantir que todos os alunos adquiram conhecimentos sobre desenvolvimento sustentável e estilos de vida sustentáveis.</p>
+        </div>
+        <div class="ods-card">
+          <div class="ods-num">ODS 9</div>
+          <div class="ods-icon">🧪</div>
+          <h3>Indústria, Inovação e Infraestrutura</h3>
+          <p class="ods-why"><strong>Como abordamos:</strong> Utilizamos TensorFlow.js (IA de visão computacional) rodando no navegador — tecnologia acessível que demonstra inovação aplicada à sustentabilidade.</p>
+          <p class="ods-meta">Meta 9.5 — Aumentar a pesquisa científica e as capacidades tecnológicas, incentivando a inovação.</p>
+        </div>
+        <div class="ods-card">
+          <div class="ods-num">ODS 17</div>
+          <div class="ods-icon">🤝</div>
+          <h3>Parcerias e Meios de Implementação</h3>
+          <p class="ods-why"><strong>Como abordamos:</strong> A plataforma conecta moradores de Alvorada do Sul para trocas, doações e cooperação em torno da economia circular.</p>
+          <p class="ods-meta">Meta 17.17 — Incentivar e promover parcerias eficazes nos setores público, público-privado e da sociedade civil.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="memory-message" id="memory-message"></div>
+  <!-- JOGO -->
+  <section class="section section-alt" id="jogo">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Jogo ReUse</span>
+        <h2 class="section-title">Jogue de verdade!</h2>
+        <p class="section-sub">Jogo da memória + quiz sobre resíduos. Aprenda brincando.</p>
+      </div>
+
+      <!-- Tabs -->
+      <div class="game-tabs">
+        <button class="game-tab active" data-tab="memoria">🧠 Jogo da Memória</button>
+        <button class="game-tab" data-tab="quiz">🎯 Quiz Separe Certo</button>
+      </div>
+
+      <!-- Jogo da Memória -->
+      <div class="game-panel active" id="panel-memoria">
+        <div class="game-wrap">
+          <div class="game-hud">
+            <div class="hud-item"><span>Pontos</span><strong id="mem-score">0</strong></div>
+            <div class="hud-item"><span>Jogadas</span><strong id="mem-moves">0</strong></div>
+            <div class="hud-item"><span>Pares</span><strong id="mem-pairs">0 / 8</strong></div>
+            <div class="hud-item"><span>Tempo</span><strong id="mem-time">00:00</strong></div>
+          </div>
+          <div class="memory-grid" id="memory-grid"></div>
+          <div class="memory-actions">
+            <button class="btn btn-primary" id="btn-mem-restart">🔄 Novo jogo</button>
+          </div>
+          <div class="memory-message" id="memory-message"></div>
+        </div>
+      </div>
+
+      <!-- Quiz -->
+      <div class="game-panel" id="panel-quiz">
+        <div class="game-wrap">
+          <div class="quiz-hud">
+            <div class="hud-item"><span>Pergunta</span><strong id="quiz-current">1</strong></div>
+            <div class="hud-item"><span>Acertos</span><strong id="quiz-hits">0</strong></div>
+            <div class="hud-item"><span>Erros</span><strong id="quiz-misses">0</strong></div>
+            <div class="hud-item"><span>Pontos</span><strong id="quiz-score">0</strong></div>
+          </div>
+
+          <div class="quiz-card" id="quiz-card">
+            <div class="quiz-icon" id="quiz-icon">♻️</div>
+            <h3 class="quiz-question" id="quiz-question">Carregando...</h3>
+            <div class="quiz-options" id="quiz-options"></div>
+            <div class="quiz-feedback" id="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz-actions">
+            <button class="btn btn-primary" id="btn-quiz-next" disabled>Próxima pergunta →</button>
+            <button class="btn btn-outline" id="btn-quiz-restart">🔄 Reiniciar</button>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- SOBRE -->
-  <section class="section section-alt" id="sobre">
+  <section class="section" id="sobre">
     <div class="container">
       <div class="section-header">
         <span class="section-tag">Sobre o Projeto</span>
-        <h2 class="section-title">ReUse IA — Londrina-PR</h2>
-        <p class="section-sub">Tecnologia, sustentabilidade e impacto social.</p>
+        <h2 class="section-title">ReUse IA — Alvorada do Sul-PR</h2>
       </div>
       <div class="about-grid">
         <div class="about-card">
           <h3>🎯 Objetivo</h3>
-          <p>Utilizar IA real para identificar materiais descartados, sugerir reutilização e conectar pessoas — com foco em Londrina e região.</p>
+          <p>Utilizar IA real para ajudar moradores de Alvorada do Sul a identificar materiais descartados, descobrir reutilização e conectar pessoas — com dados reais do município.</p>
         </div>
         <div class="about-card">
           <h3>🧠 Tecnologia</h3>
-          <p>HTML5, CSS3, JavaScript, TensorFlow.js (MobileNet), Chart.js. IA 100% no navegador, sem backend.</p>
+          <p>HTML5, CSS3, JavaScript, TensorFlow.js (MobileNet) e Chart.js. IA 100% no navegador, sem backend.</p>
         </div>
         <div class="about-card">
-          <h3>🌍 ODS Abordadas</h3>
-          <p>ODS 12 (Consumo Responsável), 13 (Ação Climática), 11 (Cidades Sustentáveis), 4 (Educação), 9 (Inovação) e 17 (Parcerias).</p>
+          <h3>📊 Fontes dos dados</h3>
+          <p>IBGE Cidades 2022, SNIS 2022, IPARDES, Atlas do Desenvolvimento Humano (PNUD) e Prefeitura de Alvorada do Sul.</p>
         </div>
         <div class="about-card">
           <h3>🔐 Privacidade</h3>
-          <p>Nenhuma imagem é enviada para servidores. Tudo é processado no seu navegador. Dados salvos em localStorage.</p>
+          <p>Nenhuma imagem sai do seu dispositivo. Dados salvos em localStorage. Sem coleta de dados pessoais.</p>
         </div>
       </div>
     </div>
@@ -320,15 +413,15 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-bottom">
-        <p>© <span id="year"></span> ReUse IA — Projeto de inovação científica e tecnológica · Londrina-PR</p>
+        <p>© <span id="year"></span> ReUse IA — Alvorada do Sul, Paraná · Projeto de inovação científica e tecnológica</p>
       </div>
     </div>
   </footer>
 
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="toast" id="toast"></div>
 
   <script src="script.js"></script>
   <script src="chat-ia.js"></script>
-  <script src="jogo-memoria.js"></script>
+  <script src="jogo.js"></script>
 </body>
 </html>
